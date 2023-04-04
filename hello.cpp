@@ -1,80 +1,49 @@
-//5.1
+//5.3
 #include <iostream>
 using namespace std;
-class Teacher
-{
+class alpha {
 public:
-    string tid;
-    string name;
-    string pub;
-    void get1()
-    {
-        cout << "Enter Tacher code: ";
-        cin >> tid;
-        cout << "Enter Name: ";
-        cin >> name;
-        cout << "Enter publication: ";
-        cin >> pub;
+    alpha(int a) {
+        cout << "Constructing alpha class." << endl;
+        x = a;
     }
+    void printX() {
+        cout << "Value of x in alpha class: " << x << endl; }
+private:
+    int x;
 };
-class Officer
-{
+class beta {
 public:
-    string ocode;
-    string oname;
-    string grade;
-    void get2()
-    {
-        cout << "Enter officer code : ";
-        cin >> ocode;
-        cout << "Enter officer name : ";
-        cin >> oname;
-        cout << "Enter grade : ";
-        cin >> grade;
+    beta(float b) {
+        cout << "Constructing beta class." << endl;
+        y = b;
     }
+    void printY() {
+        cout << "Value of y in beta class: " << y << endl;
+    }
+private:
+    float y;
 };
-class Typist
-{
+class gamma : public alpha, public beta {
 public:
-    string tcode;
-    string tname;
-    int wage;
-    void get3()
-    {
-        cout << "Enter Typist Code: ";
-        cin >> tcode;
-        cout << "Enter typist name: ";
-        cin >> tname;
-        cout << "Enter wage: ";
-        cin >> wage;
+    gamma(int a, float b, int c, float d) : alpha(a), beta(b) {
+        cout << "Constructing gamma class." << endl;
+        m = c;
+        n = d;
     }
+    void printM() {
+        cout << "Value of m in gamma class: " << m << endl; }
+    void printN() {
+        cout << "Value of n in gamma class: " << n << endl; }
+private:
+    int m;
+    float n;
 };
-class show : public Teacher, public Officer, public Typist
-{
-public:
-    void put()
-    {
-        cout << endl
-             << "Teacher's details are: " << endl
-             << tid << endl
-             << name << endl
-             << pub << endl
-             << endl
-             << "Details of officer are :" << ocode << endl
-             << oname << endl
-             << grade << endl
-             << endl
-             << "Details of typist are :" << endl
-             << tcode << endl
-             << tname << endl
-             << wage;
-    }
-};
-int main()
-{
-    show s;
-    s.get1();
-    s.get2();
-    s.get3();
-    s.put();
+int main() {
+    gamma obj(1, 2.5, 3, 4.5);
+    obj.printX();
+    obj.printY();
+    obj.printM();
+    obj.printN();
+    return 0;
 }
