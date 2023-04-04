@@ -1,43 +1,80 @@
+//5.1
 #include <iostream>
 using namespace std;
-class Student
+class Teacher
 {
 public:
-    int uid;
+    string tid;
     string name;
-    void in()
-    { cout << "Enter uid: ";
-        cin >> uid;
-        cout << "Enter name: ";
-        cin >> name; } };
-class subjects : virtual public Student
+    string pub;
+    void get1()
+    {
+        cout << "Enter Tacher code: ";
+        cin >> tid;
+        cout << "Enter Name: ";
+        cin >> name;
+        cout << "Enter publication: ";
+        cin >> pub;
+    }
+};
+class Officer
 {
 public:
-    float m1;
-    void inn()
-    { cout << "Enter marks in 5 subjects(out of 500): ";
-        cin >> m1; } };
-class sports : virtual public Student
+    string ocode;
+    string oname;
+    string grade;
+    void get2()
+    {
+        cout << "Enter officer code : ";
+        cin >> ocode;
+        cout << "Enter officer name : ";
+        cin >> oname;
+        cout << "Enter grade : ";
+        cin >> grade;
+    }
+};
+class Typist
 {
 public:
-    int m2;
-    void innn()
-    {cout << "Enter marks in sports: ";
-        cin >> m2; }};
-class result : public subjects, public sports
+    string tcode;
+    string tname;
+    int wage;
+    void get3()
+    {
+        cout << "Enter Typist Code: ";
+        cin >> tcode;
+        cout << "Enter typist name: ";
+        cin >> tname;
+        cout << "Enter wage: ";
+        cin >> wage;
+    }
+};
+class show : public Teacher, public Officer, public Typist
 {
 public:
-    void out()
-    { cout << endl
-           << "uid: " << uid << endl
-           << "Name: " << name << endl
-           << "Academic Marks: " << m1/5 << endl
-           << "Sports marks: " << m2 << endl
-           << "Final Result(out of 100): " << float(((m1/5) + m2)) / 2.00; }};
+    void put()
+    {
+        cout << endl
+             << "Teacher's details are: " << endl
+             << tid << endl
+             << name << endl
+             << pub << endl
+             << endl
+             << "Details of officer are :" << ocode << endl
+             << oname << endl
+             << grade << endl
+             << endl
+             << "Details of typist are :" << endl
+             << tcode << endl
+             << tname << endl
+             << wage;
+    }
+};
 int main()
-{ result a;
-    a.in();
-    a.inn();
-    a.innn();
-    a.out();
+{
+    show s;
+    s.get1();
+    s.get2();
+    s.get3();
+    s.put();
 }
